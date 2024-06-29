@@ -28,4 +28,5 @@ function DispalyUserData({ userInfo }) {
         </div>
     )
 }
+
 export default DispalyUserData;
