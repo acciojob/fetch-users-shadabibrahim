@@ -5,10 +5,12 @@ function DispalyUserData({ userInfo }) {
         <div>
             <table>
                 <thead>
+                <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Avatar</th>
+                    </tr>
                 </thead>
                 <tbody>
                 {userInfo.map((item) => {
