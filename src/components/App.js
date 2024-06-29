@@ -13,10 +13,7 @@ const App = () => {
   const [disp, setDisp] = useState(false);
   const getUser = async () => {
     try {
-      const response = await Axios({
-        method: 'GET',
-        url: 'https://reqres.in/api/users'
-      })
+      const response = await Axios('https://reqres.in/api/users')
       // console.log(response.data.data)
       setuserInfo(response.data.data)
 
