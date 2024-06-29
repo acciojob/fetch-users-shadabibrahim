@@ -1,39 +1,58 @@
-import 'regenerator-runtime/runtime';
-import React, { useState, useEffect } from "react";
+
+import React, {useState} from "react";
 import './../styles/App.css';
-import Axios from 'axios';
-import DispalyUserData from './Display';
 
 const App = () => {
+  const [data, setData] = useState(null);
 
-
-  const [userInfo, setuserInfo] = useState([]);
-  const [disp, setDisp] = useState(false);
-  const getUser = async () => {
+  const fetchUsers = async () => {
     try {
-      const response = await  Axios('https://reqres.in/api/users')
-      setuserInfo(response.data.data)
+      const response = await fetch("https://reqres.in/api/users");
+      const data = await response.json();
+      setData(data.data);
+    } catch (error) {}
+  };
 
-    } catch (error) {
-      alert(error.message)
-    }
-
-  }
-  useEffect(() => {
-    getUser()
-  }, [])
-
-  const handleClick = () => {
-    setDisp(true)
-  }
   return (
     <div>
-      {/* Do not remove the main div */}
-      <button className=".btn" onClick={handleClick} >Get User List</button>
-      {disp ? <DispalyUserData userInfo={userInfo} /> : <span><h5>No data found to be display.</h5></span>}
-
+      <div className="header">
+        <h2>Blue Whale</h2>
+        <button className="btn" onClick={fetchUsers}>
+          Get User List
+        </button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Avatar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data ? (
+            data.map((user) => {
+              return (
+                <tr key={user.id}>
+                  <td>{user.first_name}</td>
+                  <td>{user.last_name}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <img src={user.avatar} />
+                  </td>
+                </tr>
+              );
+            })
+          ) : (
+            <tr>
+              <td>No data found</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
