@@ -13,9 +13,9 @@ function DispalyUserData({ userInfo }) {
                     </tr>
                 </thead>
                 <tbody>
-                {userInfo.map((item) => {
+                {userInfo.map((item,index) => {
                     return (
-                        <tr key={item.id}>
+                        <tr key={index}>
                             <td>{item.first_name}</td>
                             <td>{item.last_name}</td>
                             <td>{item.email}</td>
