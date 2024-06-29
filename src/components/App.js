@@ -3,8 +3,6 @@ import React, { useState, useEffect } from "react";
 import './../styles/App.css';
 import Axios from 'axios';
 import DispalyUserData from './Display';
-// import { Table } from 'antd';
-// import { fetchUser } from "./fetchUser";
 
 const App = () => {
 
@@ -14,7 +12,6 @@ const App = () => {
   const getUser = async () => {
     try {
       const response = await Axios('https://reqres.in/api/users')
-      // console.log(response.data.data)
       setuserInfo(response.data.data)
 
     } catch (error) {
