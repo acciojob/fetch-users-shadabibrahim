@@ -36,7 +36,7 @@ const App = () => {
     <div>
       {/* Do not remove the main div */}
       <button className=".btn" onClick={handleClick} >Get User List</button>
-      {disp ? <DispalyUserData userInfo={userInfo} /> : <span><h5>No data fount to be display.</h5></span>}
+      {disp ? <DispalyUserData userInfo={userInfo} /> : <span><h5>No data found to be display.</h5></span>}
 
     </div>
   )
