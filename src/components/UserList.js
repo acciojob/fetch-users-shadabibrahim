@@ -26,28 +26,32 @@ const UserList = () => {
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {!loading && !error && users.length === 0 && <p>No data found</p>}
-      {users.length > 0 && (
-        <table>
-          <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Avatar</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map(user => (
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Avatar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.length > 0 ? (
+            users.map(user => (
               <tr key={user.id}>
                 <td>{user.first_name}</td>
                 <td>{user.last_name}</td>
                 <td>{user.email}</td>
                 <td><img src={user.avatar} alt={`${user.first_name} ${user.last_name}`} /></td>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4">No data found</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>
   );
 };
