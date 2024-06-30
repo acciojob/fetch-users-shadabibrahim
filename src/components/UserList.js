@@ -47,7 +47,7 @@ const UserList = () => {
             ))
           ) : (
             <tr>
-              <td colSpan="4">No data found</td>
+              <td colSpan="4">No data found to display.</td>
             </tr>
           )}
         </tbody>
