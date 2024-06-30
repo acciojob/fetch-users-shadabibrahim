@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div>
       <div className="header">
-        <h2>Blue Whale</h2>
+        <h2>Blue Whales App</h2>
         <button className="btn" onClick={fetchUsers}>
           Get User List
         </button>
